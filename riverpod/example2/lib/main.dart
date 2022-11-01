@@ -12,33 +12,65 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      darkTheme: ThemeData.dark(),
-      themeMode: ThemeMode.dark,
+      theme: ThemeData(),
       home: HomePage(),
     );
   }
 }
 
 class HomePage extends ConsumerWidget {
-  final counterProvider =
-      StateNotifierProvider<Counter, int>(((ref) => Counter()));
-
   HomePage({super.key});
+
+  final counterProvider = StateNotifierProvider<Counter, int>(((ref) {
+    return Counter();
+  }));
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    ref.listen(counterProvider, ((previous, next) {
+      if (next > 5) {
+        showDialog(
+            context: context,
+            builder: ((context) {
+              return AlertDialog(
+                content: const Text('Mehn am balling!'),
+                actions: [
+                  TextButton(
+                      onPressed: (() => Navigator.of(context).pop()),
+                      child: const Text('Ok'))
+                ],
+              );
+            }));
+      }
+    }));
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          ref.read(counterProvider.notifier).increment();
-        },
-      ),
       appBar: AppBar(),
       body: Center(
-        child: Consumer(
-          builder: (context, ref, child) {
-            return Text((ref.watch(counterProvider).toString()));
-          },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(ref.watch(counterProvider).toString()),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextButton(
+                      onPressed: (() =>
+                          ref.read(counterProvider.notifier).decrement()),
+                      child: const Text('-')),
+                  TextButton(
+                      onPressed: (() =>
+                          ref.read(counterProvider.notifier).reset()),
+                      child: const Text('*')),
+                  TextButton(
+                      onPressed: (() =>
+                          ref.read(counterProvider.notifier).increment()),
+                      child: const Text('+'))
+                ],
+              ),
+            )
+          ],
         ),
       ),
     );

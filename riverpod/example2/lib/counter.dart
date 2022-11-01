@@ -4,5 +4,6 @@ class Counter extends StateNotifier<int> {
   Counter() : super(0);
 
   void increment() => state++;
-  // int get value => state;
+  void decrement() => state--;
+  void reset() => state = 0;
 }
