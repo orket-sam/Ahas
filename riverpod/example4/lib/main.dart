@@ -55,7 +55,7 @@ class HomePage extends ConsumerWidget {
       if (next.value == names.length) {
         showDialog(
             context: context,
-            builder: ((context) => AlertDialog(
+            builder: ((context) => const AlertDialog(
                   content: Text('End of list'),
                 )));
       }
