@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-final names = [
+final namess = [
   'orket',
   'sam',
   'hozier',
@@ -29,16 +29,16 @@ final names = [
 final counterStream = StreamProvider(((ref) {
   return getCountStream();
 
-  //  Stream.periodic(
+  // return Stream.periodic(
   //     const Duration(seconds: 1), ((computationCount) => computationCount + 1));
 }));
 
 final namesStream = StreamProvider(((ref) =>
-    ref.watch(counterStream.stream).map((event) => names.getRange(0, event))));
+    ref.watch(counterStream.stream).map((event) => namess.getRange(0, event))));
 
 Stream<int> getCountStream() async* {
   int count = 0;
-  while (count <= names.length) {
+  while (count <= namess.length) {
     yield count++;
     await Future.delayed(const Duration(seconds: 1));
   }
@@ -52,7 +52,7 @@ class HomePage extends ConsumerWidget {
     var counterData = ref.watch(namesStream);
 
     ref.listen(counterStream, ((previous, next) {
-      if (next.value == names.length) {
+      if (next.value == 6) {
         showDialog(
             context: context,
             builder: ((context) => const AlertDialog(
@@ -68,11 +68,9 @@ class HomePage extends ConsumerWidget {
           children: [
             counterData.when(
                 data: (names) => Expanded(
-                      child: ListView.builder(
-                          itemCount: names.length,
-                          itemBuilder: ((context, index) => ListTile(
-                                title: Text(names.toList()[index]),
-                              ))),
+                      child: ListView(
+                        children: names.map((name) => Text(name)).toList(),
+                      ),
                     ),
                 error: (e, s) => const Text('Reached end of list'),
                 loading: () => const CircularProgressIndicator()),
