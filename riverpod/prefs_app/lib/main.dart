@@ -34,13 +34,15 @@ class HomePage extends ConsumerWidget {
     final isScrolling = ref.watch(scrollProvider);
     return Scaffold(
       floatingActionButton: !isScrolling
-          ? FloatingActionButton.extended(
-              backgroundColor: Colors.green,
-              label: const Text('Increment'),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-              onPressed: (() => ref.read(counterProvider.notifier).increment()))
+          ? Consumer(
+              builder: ((context, ref, child) => FloatingActionButton.extended(
+                  backgroundColor: Colors.green,
+                  label: const Text('Increment'),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  onPressed: (() =>
+                      ref.read(counterProvider.notifier).increment()))))
           : null,
       appBar: AppBar(
         actions: [
@@ -64,12 +66,14 @@ class HomePage extends ConsumerWidget {
         },
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Center(
-                child: Text(ref.watch(counterProvider).toString()),
-              ),
-            ),
+            Consumer(builder: ((context, ref, child) {
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Center(
+                  child: Text(ref.watch(counterProvider).toString()),
+                ),
+              );
+            })),
             Expanded(
               child: ListView(
                 children: List.generate(
