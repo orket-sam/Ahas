@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:speed_dial/constants.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(),
+      theme: ThemeData(primarySwatch: kToDark),
       home: const HomePage(),
     );
   }
@@ -33,20 +34,20 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.purple,
         children: [
           SpeedDialChild(
-              labelStyle: TextStyle(color: Colors.white),
+              labelStyle: const TextStyle(color: Colors.white),
               labelBackgroundColor: Colors.purple,
               backgroundColor: Colors.purple,
               foregroundColor: Colors.white,
-              child: Icon(
+              child: const Icon(
                 Icons.person_add,
               ),
               label: 'Profile'),
           SpeedDialChild(
-              labelStyle: TextStyle(color: Colors.white),
+              labelStyle: const TextStyle(color: Colors.white),
               labelBackgroundColor: Colors.purple,
               backgroundColor: Colors.purple,
               foregroundColor: Colors.white,
-              child: Icon(
+              child: const Icon(
                 Icons.phone,
               ),
               label: 'Contact'),
@@ -58,7 +59,7 @@ class HomePage extends StatelessWidget {
         children: [
           Expanded(
             child: ListView(
-              children: List.generate(400, (index) => Text('hha')),
+              children: List.generate(400, (index) => const Text('hha')),
             ),
           ),
         ],
