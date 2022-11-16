@@ -27,7 +27,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       drawer: const AppDrawer(),
       appBar: AppBar(),
-      body: const LogIn1(),
+      body: LogIn1(),
     );
   }
 }
