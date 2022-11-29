@@ -1,4 +1,4 @@
-package com.orket.push.push_notifications
+package com.orket.notifications.push_notifications
 
 import io.flutter.embedding.android.FlutterActivity
 

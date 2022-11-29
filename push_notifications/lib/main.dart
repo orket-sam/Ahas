@@ -1,9 +1,22 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:push_notifications/firebase_options.dart';
 
-void main() {
-  runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  FirebaseMessaging.onBackgroundMessage(_fcmHandler);
+  FirebaseMessaging.onMessageOpenedApp.listen((event) {
+    print(event);
+  });
+
+  runApp(const MyApp());
+}
+
+Future<void> _fcmHandler(message) async {
+  await Firebase.initializeApp();
+  print(message);
 }
 
 class MyApp extends StatelessWidget {
@@ -11,6 +24,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return MaterialApp(
+      home: Scaffold(),
+    );
   }
 }

@@ -1,8 +1,5 @@
 # push_notifications
 
-Flutter app with push notifications ( FCM ).
-
+A flutter push notifications app
 ## Getting Started
-
-This project is a starting point for a Flutter application.
 

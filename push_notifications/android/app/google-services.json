@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "859233280138",
+    "project_id": "orket-notifications-app",
+    "storage_bucket": "orket-notifications-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:859233280138:android:f9c7428bf40eac43288d73",
+        "android_client_info": {
+          "package_name": "com.orket.notifications.push_notifications"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "859233280138-p5agcksaa9sdt4bv385fbbb2s3pkatb4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCt6_gj8_hjEyV0UkUGQuvMbFhJK3NMRus"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "859233280138-p5agcksaa9sdt4bv385fbbb2s3pkatb4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
