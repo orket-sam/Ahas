@@ -8,11 +8,3 @@ class Produce {
       required this.subcategory,
       required this.units});
 }
-
-List<Produce> _data = [
-  Produce(
-      category: 'category',
-      quantity: 10,
-      subcategory: 'subcategory',
-      units: 'units')
-];
