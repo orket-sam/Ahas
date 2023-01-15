@@ -1,5 +1,5 @@
 void main() {
-  print(fact(20));
+  print(fact(20 ));
 }
 
 int fact(int n) {
