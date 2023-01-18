@@ -1,6 +1,7 @@
 // Find minimum amount of coins needed for change
 void main() {
-  coinsMinimum(10000);
+  coinsMinimum(70);
+  // print(10 ~/ 3);
 }
 
 void coinsMinimum(int amount) {
@@ -10,14 +11,20 @@ void coinsMinimum(int amount) {
 
   while (amount > 0) {
     if (amount >= denominations[max]) {
-      count += 1;
-
-      amount -= denominations[max];
+      if (amount ~/ denominations[max] > 1) {
+        count += amount ~/ denominations[max];
+        amount -= (amount ~/ denominations[max]) * denominations[max];
+      } else {
+        count += 1;
+        amount -= denominations[max];
+      }
     } else if (amount > 0) {
       max -= 1;
-    } else {
-      break;
     }
   }
   print(count);
 }
+
+
+
+// Check the floor
