@@ -1,5 +1,3 @@
-import 'dart:math';
-
 void main() {
   var x = guessNumber(1, 15);
   print(x);
