@@ -1,15 +1,14 @@
+// Input: digits = [1,2,3]
+// Output: [1,2,4]
+// Explanation: The array represents the integer 123.
+// Incrementing by one gives 123 + 1 = 124.
+
 void main() {
   largeInt([9, 9, 9, 9, 9]);
 }
 
 void largeInt(List<int> data) {
-  var emptyString = '';
-  data.forEach(
-    (element) => emptyString += element.toString(),
-  );
-
-  var result = int.tryParse(emptyString)! + 1;
-  var resultString = result.toString();
-
-  print(resultString.split(''));
+  int dataInt = int.parse(data.join());
+  data = (dataInt + 1).toString().split('').map((e) => int.parse(e)).toList();
+  print(data);
 }
