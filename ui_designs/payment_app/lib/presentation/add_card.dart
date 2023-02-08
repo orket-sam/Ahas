@@ -1,12 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:payment_app/ios_datepicker.dart';
 import 'package:payment_app/presentation/custom_input_formatter.dart';
+import 'package:payment_app/presentation/datepicker.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class AddCard extends StatelessWidget {
+  const AddCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -112,7 +111,7 @@ class MyApp extends StatelessWidget {
                   Flexible(
                     child: TextField(
                       readOnly: true,
-                      onTap: CustomDatePicker(context: context).iosDate,
+                      onTap: CustomDatePicker(context: context).pickDate,
                       style: const TextStyle(color: Colors.black),
                       decoration: InputDecoration(
                         hintText: 'date',
