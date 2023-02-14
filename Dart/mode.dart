@@ -11,5 +11,4 @@ void findMode(List<int> numbers) {
       numberMap[element] += 1;
     }
   }
-  print(numberMap);
 }
