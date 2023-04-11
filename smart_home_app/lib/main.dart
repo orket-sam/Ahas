@@ -39,11 +39,11 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.grey,
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: SafeArea(
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.grey,
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
